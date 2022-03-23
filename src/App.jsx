@@ -1,6 +1,16 @@
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+
+import MovieScreen from "./components/MovieScreen";
 import Header from "./components/Header";
 
 export default function App(){
 
-    return(<Header/>)
+    return(
+        <BrowserRouter>
+        <Header/>
+        <Routes>
+            <Route path="/" element={<MovieScreen/>}/>
+        </Routes>
+        </BrowserRouter>
+    )
 }

@@ -15,7 +15,7 @@ export default function Header(){
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     font-size: 34px;
     color: #E8833A;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     `
 
     return(
