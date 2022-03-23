@@ -10,7 +10,7 @@ export default function MovieScreen(){
             <BoxTitle>
                 <Title>Selecione o Filme</Title>
             </BoxTitle>
-            <BoxMovies>{array.map(()=>{return <Movie/>})}</BoxMovies>
+            <BoxMovies>{array.map(index=>{return <Movie key={index}/>})}</BoxMovies>
         </Container>
     )
 }
