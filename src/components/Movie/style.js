@@ -6,12 +6,10 @@ export const Container = styled.div`
   border-radius: 3px;
   width: 135px;
   height: 209px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const Image = styled.img`
   width: calc(100% - 16px);
   height: calc(100% - 16px);
+  margin: 8px 0 0 8px;
 `;
