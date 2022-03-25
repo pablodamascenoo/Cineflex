@@ -18,3 +18,13 @@ export const BoxTitle = styled.div`
   justify-content: center;
   margin-top: 67px;
 `;
+
+export const Footer = styled.footer`
+  width: 100%;
+  height: 117px;
+  left: 0px;
+  bottom: 0px;
+  background: #dfe6ed;
+  border: 1px solid #9eadba;
+  position: fixed;
+`;

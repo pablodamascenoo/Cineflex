@@ -2,7 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { BoxTitle, Container, Title } from "../../commom-styles/style";
+import { BoxTitle, Container, Title, Footer } from "../../commom-styles/style";
+import { BoxSection } from "./style";
+
 import DaySection from "../DaySection";
 
 export default function TimeScreen() {
@@ -23,14 +25,12 @@ export default function TimeScreen() {
     });
   }, []);
 
-  console.log(sections.days);
-
   return (
     <Container>
       <BoxTitle>
         <Title>Selecione o horário</Title>
       </BoxTitle>
-      <div>
+      <BoxSection>
         {sections.days !== undefined ? (
           sections.days.map(({ weekday, date, showtimes, id }) => {
             return (
@@ -45,7 +45,8 @@ export default function TimeScreen() {
         ) : (
           <></>
         )}
-      </div>
+      </BoxSection>
+      <Footer></Footer>
     </Container>
   );
 }
