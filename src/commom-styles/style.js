@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
 `;
 
 export const Title = styled.h2`

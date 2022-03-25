@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { BoxTitle, Container, Title } from "../../commom-styles/style";
+import DaySection from "../DaySection";
 
 export default function TimeScreen() {
-  const [sections, SetSections] = useState({});
   const { id } = useParams();
+  const [sections, SetSections] = useState({});
 
   useEffect(() => {
     const promisse = axios.get(
@@ -22,16 +23,24 @@ export default function TimeScreen() {
     });
   }, []);
 
+  console.log(sections.days);
+
   return (
     <Container>
       <BoxTitle>
         <Title>Selecione o horário</Title>
-        <div>
-          {sections.days.map((day) => {
-            return <p>{day.weekday}</p>;
-          })}
-        </div>
       </BoxTitle>
+      <div>
+        {sections.days !== undefined ? (
+          sections.days.map(({ weekday, date, showtimes }) => {
+            return (
+              <DaySection weekday={weekday} date={date} showtimes={showtimes} />
+            );
+          })
+        ) : (
+          <></>
+        )}
+      </div>
     </Container>
   );
 }

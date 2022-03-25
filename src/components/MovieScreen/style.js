@@ -5,5 +5,6 @@ export const BoxMovies = styled.div`
   flex-wrap: wrap;
   gap: 30px;
   width: calc(100% - 60px);
+  margin: auto;
   justify-content: center;
 `;
