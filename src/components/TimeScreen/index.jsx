@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { BoxTitle, Container, Title, Footer } from "../../commom-styles/style";
-import { BoxSection } from "./style";
+import { BoxSection, ImageBox } from "./style";
+import { Image } from "../Movie/style";
 
 import DaySection from "../DaySection";
 
@@ -46,7 +47,12 @@ export default function TimeScreen() {
           <></>
         )}
       </BoxSection>
-      <Footer></Footer>
+      <Footer>
+        <ImageBox>
+          <Image src={sections.posterURL} alt={sections.title} />
+        </ImageBox>
+        <p>{sections.title}</p>
+      </Footer>
     </Container>
   );
 }

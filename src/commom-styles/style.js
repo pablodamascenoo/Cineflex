@@ -20,6 +20,7 @@ export const BoxTitle = styled.div`
 `;
 
 export const Footer = styled.footer`
+  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   width: 100%;
   height: 117px;
   left: 0px;
@@ -27,4 +28,12 @@ export const Footer = styled.footer`
   background: #dfe6ed;
   border: 1px solid #9eadba;
   position: fixed;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-family: "Roboto", sans-serif;
+    font-size: 26px;
+    color: #293845;
+  }
 `;
