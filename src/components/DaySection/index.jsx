@@ -1,14 +1,14 @@
-import { Button, DaySpan } from "./style";
+import { Button, DaySpan, Box } from "./style";
 
 export default function DaySection({ weekday, date, showtimes }) {
   return (
-    <div>
+    <Box>
       <DaySpan>{weekday} - </DaySpan>
       <DaySpan>{date}</DaySpan>
       <br />
-      {showtimes.map(({ name }) => {
-        return <Button>{name}</Button>;
+      {showtimes.map(({ name, id }) => {
+        return <Button key={id}>{name}</Button>;
       })}
-    </div>
+    </Box>
   );
 }

@@ -28,3 +28,7 @@ export const Button = styled.button`
   text-align: center;
   color: white;
 `;
+
+export const Box = styled.div`
+  margin-left: 24px;
+`;

@@ -32,9 +32,14 @@ export default function TimeScreen() {
       </BoxTitle>
       <div>
         {sections.days !== undefined ? (
-          sections.days.map(({ weekday, date, showtimes }) => {
+          sections.days.map(({ weekday, date, showtimes, id }) => {
             return (
-              <DaySection weekday={weekday} date={date} showtimes={showtimes} />
+              <DaySection
+                key={id}
+                weekday={weekday}
+                date={date}
+                showtimes={showtimes}
+              />
             );
           })
         ) : (
