@@ -1,4 +1,5 @@
 import { Button, DaySpan, Box } from "./style";
+import { Link } from "react-router-dom";
 
 export default function DaySection({ weekday, date, showtimes }) {
   return (
@@ -7,7 +8,11 @@ export default function DaySection({ weekday, date, showtimes }) {
       <DaySpan>{date}</DaySpan>
       <br />
       {showtimes.map(({ name, id }) => {
-        return <Button key={id}>{name}</Button>;
+        return (
+          <Link to={`/sessao/${id}`}>
+            <Button key={id}>{name}</Button>
+          </Link>
+        );
       })}
     </Box>
   );
