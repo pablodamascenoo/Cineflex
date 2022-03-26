@@ -35,6 +35,51 @@ export const SeatsLabel = styled.div`
   }
 `;
 
+export const Form = styled.form`
+  margin-top: 42px;
+  display: flex;
+  flex-direction: column;
+
+  input {
+    width: 327px;
+    height: 51px;
+    margin-left: 24px;
+    background: #ffffff;
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    padding-left: 18px;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 7px;
+
+    &::placeholder {
+      color: #afafaf;
+      font-family: "Roboto";
+      font-style: italic;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    margin-left: 24px;
+
+    color: #293845;
+  }
+
+  button {
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+`;
+
 export const cpfMask = (value) => {
   return value
     .replace(/\D/g, "") // substitui qualquer caracter que nao seja numero por nada
