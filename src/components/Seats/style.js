@@ -10,4 +10,16 @@ export const Seat = styled.div`
   margin-bottom: 11px;
   align-items: center;
   justify-content: center;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
 `;

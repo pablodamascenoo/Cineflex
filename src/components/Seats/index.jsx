@@ -21,7 +21,7 @@ export default function Seats({ name, status, id, addSeat, selected }) {
       background={color.background}
       border={color.border}
       onClick={() => {
-        if (status) addSeat(id);
+        if (status && id !== undefined) addSeat(id);
       }}
     >
       <p>{name}</p>

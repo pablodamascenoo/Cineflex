@@ -37,3 +37,18 @@ export const Footer = styled.footer`
     color: #293845;
   }
 `;
+
+export const ImageBox = styled.div`
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+  width: 64px;
+  height: 89px;
+  margin-left: 10px;
+  margin-right: 14px;
+`;
+
+export const Image = styled.img`
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  margin: 8px 0 0 8px;
+`;

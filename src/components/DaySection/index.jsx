@@ -9,8 +9,8 @@ export default function DaySection({ weekday, date, showtimes }) {
       <br />
       {showtimes.map(({ name, id }) => {
         return (
-          <Link to={`/sessao/${id}`}>
-            <Button key={id}>{name}</Button>
+          <Link key={id} to={`/sessao/${id}`}>
+            <Button>{name}</Button>
           </Link>
         );
       })}

@@ -2,9 +2,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { BoxTitle, Container, Title, Footer } from "../../commom-styles/style";
-import { BoxSection, ImageBox } from "./style";
-import { Image } from "../Movie/style";
+import {
+  BoxTitle,
+  Container,
+  Title,
+  Footer,
+  ImageBox,
+  Image,
+} from "../../commom-styles/style";
+import { BoxSection } from "./style";
 
 import DaySection from "../DaySection";
 

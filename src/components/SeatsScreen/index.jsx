@@ -4,14 +4,30 @@ import axios from "axios";
 
 import Seats from "../Seats";
 
-import { BoxTitle, Container, Title, Footer } from "../../commom-styles/style";
-import { SeatsBox } from "./style";
+import {
+  BoxTitle,
+  Container,
+  Title,
+  Footer,
+  ImageBox,
+  Image,
+} from "../../commom-styles/style";
+import { SeatsBox, SeatsLabel, cpfMask } from "./style";
 
 export default function SeatsScreen() {
   const { id } = useParams();
   const [seats, SetSeats] = useState({});
   const [selectedSeats, SetSelectedSeats] = useState([]);
+  const [inputs, SetInputs] = useState({ name: "", cpf: "" });
+
   let selected;
+  let movie = { title: "", posterURL: "" };
+  let day = { weekday: "", date: "" };
+
+  if (seats.movie !== undefined) {
+    movie = { ...seats.movie };
+    day = { ...seats.day };
+  }
 
   function addSeat(id) {
     if (!selectedSeats.includes(id)) {
@@ -62,7 +78,61 @@ export default function SeatsScreen() {
           <></>
         )}
       </SeatsBox>
-      <Footer></Footer>
+      <SeatsLabel>
+        <div>
+          <Seats selected={true} />
+          <p>Selecionado</p>
+        </div>
+        <div>
+          <Seats status={true} />
+          <p>Disponível</p>
+        </div>
+        <div>
+          <Seats status={false} />
+          <p>Indisponível</p>
+        </div>
+      </SeatsLabel>
+      <form action="">
+        <label htmlFor="name">Nome do comprador:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          value={inputs.name}
+          onChange={(e) => {
+            let obj = { ...inputs };
+            obj.name = e.target.value;
+            SetInputs({ ...obj });
+          }}
+        />
+        <label htmlFor="cpf">CPF do comprador:</label>
+        <input
+          type="text"
+          name="cpf"
+          id="cpf"
+          maxLength="14"
+          required
+          value={inputs.cpf}
+          onChange={(e) => {
+            let obj = { ...inputs };
+            obj.cpf = cpfMask(e.target.value);
+            SetInputs({ ...obj });
+          }}
+        />
+      </form>
+      <Footer>
+        <ImageBox>
+          <Image src={movie.posterURL} />
+        </ImageBox>
+        <div>
+          <p>{movie.title}</p>
+          <p>
+            {`${day.weekday} - `}
+            <span>{day.date}</span>
+          </p>
+        </div>
+      </Footer>
     </Container>
   );
 }
