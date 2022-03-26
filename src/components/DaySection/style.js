@@ -27,6 +27,7 @@ export const Button = styled.button`
   letter-spacing: 0.02em;
   text-align: center;
   color: white;
+  cursor: pointer;
 `;
 
 export const Box = styled.div`

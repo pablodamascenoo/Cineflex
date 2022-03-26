@@ -23,7 +23,7 @@ export default function TimeScreen() {
     });
     promisse.catch((err) => {
       console.log(err.response.status);
-    });
+    }); // eslint-disable-next-line
   }, []);
 
   return (
