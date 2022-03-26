@@ -52,3 +52,11 @@ export const Image = styled.img`
   height: calc(100% - 16px);
   margin: 8px 0 0 8px;
 `;
+
+export const Submit = styled.button`
+  width: 225px;
+  height: 42px;
+  border: none;
+  background: #e8833a;
+  border-radius: 3px;
+`;
