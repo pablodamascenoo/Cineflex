@@ -5,9 +5,16 @@ export const Container = styled.main``;
 export const Title = styled.h2`
   @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
   font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.04em;
   font-family: "Roboto", sans-serif;
-  color: #293845;
-  font-weight: normal;
+  color: ${(props) => {
+    return props.success ? "#247A6B" : "#293845";
+  }};
+  font-weight: ${(props) => {
+    return props.success ? "700" : "normal";
+  }};
+  text-align: center;
 `;
 
 export const BoxTitle = styled.div`
@@ -17,6 +24,9 @@ export const BoxTitle = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 67px;
+  padding: ${(props) => {
+    return props.center ? "0 100px" : "0";
+  }};
 `;
 
 export const Footer = styled.footer`

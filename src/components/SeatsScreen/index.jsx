@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -11,14 +11,17 @@ import {
   Footer,
   ImageBox,
   Image,
+  Submit,
 } from "../../commom-styles/style";
-import { SeatsBox, SeatsLabel, cpfMask } from "./style";
+import { SeatsBox, SeatsLabel, cpfMask, Form } from "./style";
 
-export default function SeatsScreen() {
+export default function SeatsScreen({ getObj }) {
   const { id } = useParams();
   const [seats, SetSeats] = useState({});
   const [selectedSeats, SetSelectedSeats] = useState([]);
   const [inputs, SetInputs] = useState({ name: "", cpf: "" });
+
+  const navigate = useNavigate();
 
   let selected;
   let movie = { title: "", posterURL: "" };
@@ -51,6 +54,32 @@ export default function SeatsScreen() {
     });
     promisse.catch((err) => console.log(err.response.status)); // eslint-disable-next-line
   }, []);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (selectedSeats.length === 0) {
+      alert("escolha pelo menos um assento");
+      return;
+    }
+    const promisse = axios.post(
+      "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
+      { ids: [...selectedSeats], name: inputs.name, cpf: inputs.cpf }
+    );
+
+    promisse.then(() => {
+      const obj = {
+        title: movie.title,
+        weekday: day.weekday,
+        date: day.date,
+        seats: [...selectedSeats],
+        cpf: inputs.cpf,
+        name: inputs.name,
+      };
+      getObj(obj);
+      navigate("/sucesso");
+    });
+  }
 
   return (
     <Container>
@@ -92,9 +121,10 @@ export default function SeatsScreen() {
           <p>Indisponível</p>
         </div>
       </SeatsLabel>
-      <form action="">
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="name">Nome do comprador:</label>
         <input
+          placeholder="Digite seu nome..."
           type="text"
           name="name"
           id="name"
@@ -108,6 +138,7 @@ export default function SeatsScreen() {
         />
         <label htmlFor="cpf">CPF do comprador:</label>
         <input
+          placeholder="Digite seu CPF..."
           type="text"
           name="cpf"
           id="cpf"
@@ -120,7 +151,8 @@ export default function SeatsScreen() {
             SetInputs({ ...obj });
           }}
         />
-      </form>
+        <Submit type="submit">Reservar assento(s)</Submit>
+      </Form>
       <Footer>
         <ImageBox>
           <Image src={movie.posterURL} />
