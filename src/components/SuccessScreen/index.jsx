@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { Title, BoxTitle, Container, Submit } from "../commom-styles/style";
+import { Title, BoxTitle, Container, Submit } from "../../commom-styles/style";
 import { Content, ButtonBox } from "./style";
 
 export default function SuccessScreen({ obj }) {

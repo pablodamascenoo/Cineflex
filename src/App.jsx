@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 import MovieScreen from "./components/MovieScreen";
 import Header from "./components/Header";
 import TimeScreen from "./components/TimeScreen";
 import SeatsScreen from "./components/SeatsScreen";
-import { useState } from "react";
-import SuccessScreen from "./SuccessScreen";
+import SuccessScreen from "./components/SuccessScreen";
 
 export default function App() {
   const [objSubmit, SetObjSubmit] = useState({});
