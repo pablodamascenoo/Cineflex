@@ -26,6 +26,7 @@ export default function SeatsScreen({ getObj }) {
   let selected;
   let movie = { title: "", posterURL: "" };
   let day = { weekday: "", date: "" };
+  let seatsNames = [];
 
   if (seats.movie !== undefined) {
     movie = { ...seats.movie };
@@ -70,9 +71,9 @@ export default function SeatsScreen({ getObj }) {
     promisse.then(() => {
       const obj = {
         title: movie.title,
-        weekday: day.weekday,
+        time: seats.name,
         date: day.date,
-        seats: [...selectedSeats],
+        seats: [...seatsNames],
         cpf: inputs.cpf,
         name: inputs.name,
       };
@@ -89,9 +90,13 @@ export default function SeatsScreen({ getObj }) {
       <SeatsBox>
         {seats.seats !== undefined ? (
           seats.seats.map((seat) => {
-            selectedSeats.includes(seat.id)
-              ? (selected = true)
-              : (selected = false);
+            if (selectedSeats.includes(seat.id)) {
+              selected = true;
+              seatsNames.push(seat.name);
+            } else {
+              selected = false;
+            }
+
             return (
               <Seats
                 key={seat.name}
