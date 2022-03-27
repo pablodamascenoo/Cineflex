@@ -75,15 +75,7 @@ export const Form = styled.form`
   }
 
   button {
-    margin: 0 auto;
-    margin-top: 50px;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    color: #ffffff;
-    cursor: pointer;
+    margin-bottom: 137px;
   }
 `;
 

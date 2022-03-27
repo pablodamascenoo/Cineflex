@@ -8,13 +8,10 @@ export const Title = styled.h2`
   line-height: 28px;
   letter-spacing: 0.04em;
   font-family: "Roboto", sans-serif;
-  color: ${(props) => {
-    return props.success ? "#247A6B" : "#293845";
-  }};
-  font-weight: ${(props) => {
-    return props.success ? "700" : "normal";
-  }};
-  text-align: center;
+  color: ${(props) => (props.success ? "#247A6B" : "#293845")};
+  font-weight: ${(props) => (props.bold ? "700" : "normal")};
+  text-align: ${(props) => (props.success ? "center" : "start")};
+  margin-bottom: ${(props) => (props.subtitle ? "10px" : "0")};
 `;
 
 export const BoxTitle = styled.div`
@@ -69,4 +66,14 @@ export const Submit = styled.button`
   border: none;
   background: #e8833a;
   border-radius: 3px;
+
+  margin: 0 auto;
+  margin-top: 50px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+  cursor: pointer;
 `;
